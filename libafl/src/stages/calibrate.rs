@@ -230,7 +230,8 @@ where
                     if *first != *cur && *history != O::Entry::max_value() {
                         // If we just hit a history map entry that was not covered before, but is now flagged as flaky,
                         // we need to make sure the `num_covered_map_indexes` is kept in sync.
-                        map_state.num_covered_map_indexes += usize::from(*history == O::Entry::default());
+                        map_state.num_covered_map_indexes +=
+                            usize::from(*history == O::Entry::default());
                         *history = O::Entry::max_value();
                         unstable_entries.push(idx);
                     };
